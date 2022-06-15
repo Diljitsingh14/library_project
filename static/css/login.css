@@ -1,0 +1,110 @@
+*
+{
+    /* background-color: white; */
+    font-family: 'Raleway', sans-serif;
+}
+.navbar ul a:hover
+{
+    color:white;
+}
+.navbar ul .active
+{
+     color:teal;
+}
+.navbar ul a:hover::after
+{
+    width:100%;
+
+}
+ 
+
+ .navbar ul a::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    z-index:-1;
+    width:0%;
+    left:0;
+    height:100%;
+    border-radius: 3px;
+    background: teal;
+    transform-origin:center;
+    transition:transform 0.7s ease;
+    transform:scaleX(1);
+    transition: .5s;
+}
+.navbar ul a
+{
+    padding:5px 10px;
+    text-decoration: none;
+    color:black;
+    margin: 5px 10px;
+    font-weight: bolder;
+    transition: .4s ease;
+    position: relative;
+    letter-spacing: 2px;
+}
+ 
+@media (max-width:600px)
+{
+    
+    .main
+    {
+        margin-top: 160px !important;
+    }
+    .navbar-nav
+    {
+            flex-direction: row;
+    }
+    .navbar ul a 
+    {
+        display: inline;
+        
+    }
+    .navbar ul
+    {       
+        width:100%;
+    }
+    .regs
+    {
+        width: 100% !important;
+        margin:0 !important;
+    }
+}
+
+header .navbar
+{
+    box-shadow:  0px 0px 15px 1px teal;
+
+}
+section
+{
+    position: relative;
+    top:150px;
+}
+.controls > input
+{
+    width: 100%;
+}
+.regsform 
+{
+    color: white;
+    font-weight: bolder;
+    font-size: 1em;
+    width: 70%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
+}
+.regs
+{
+    border-radius: 4px;
+    padding: 15px 10px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background: teal;
+
+}

@@ -1,0 +1,161 @@
+{% extends "boilerplate.html" %}
+{% block title %} User Profile {% endblock %}
+{% load books_filter %}
+{% load crispy_forms_tags %}
+ {% block head %}
+  <style>
+    @media(max-width:500px ) {
+      .reading_book
+      {
+        display:inline-block !important;
+      }
+      .thumbnail > canvas
+      {
+        
+        width: 75%;
+        height: auto;
+      }
+      .thumbnail
+      {
+        text-align: center;
+      }
+    }
+    .reading_book
+    {
+      border-bottom: 3px solid black;
+    }
+  </style>
+ {% endblock %}
+    {% block body %}
+        <header>
+            <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+                <div class="navbar-brand "> <h1><i class="fa fa-barcode mx-2"></i> Lollins</h1> </div>
+                <ul class="navbar-nav mx-auto ">
+                   <a href ="/" class=" mx-auto"><li class="navbar-item"><i class="fa fa-home mx-2"></i> <span class="w3-hide-small">Home</span>  </li></a>
+                   <a href ="/reader/library/" class=" mx-auto" > <li class="navbar-item"><i class="fa fa-barcode mx-2"></i>  <span class="w3-hide-small"> My Library</span></li></a>
+                   <a href ="/contact_us/" class="mx-auto" ><li class="navbar-item"><i class="fa fa-phone mx-2"></i> <span class="w3-hide-small"> Contact us</span></li></a>
+                     
+                </ul>
+                <div class="user-bar">
+                    {% if user.id %}
+                    <div class="dropdown">
+                        <button class="btn user-btn dropdown-toggle" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle-o mr-2 tild" ></i>{{user.username}}  
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="usermenu">
+                            <a href="/reader/profile/" class="profile dropdown-item"><i class="fa fa-user tild  mr-3"></i> Profile</a>
+                            <a href="/reader/settings/" class=" dropdown-item"><i class="fa fa-cogs tild  mr-3"></i> Settings</a>
+                            <a href="/reader/logout/" class="dropdown-item"><i class="fa fa-sign-out tild  mr-3"></i> Logout</a>
+                        </div>
+                    </div>
+                    
+                    {% else %}
+                    <a href="/reader/login/" class="btn user-btn"><i class="fa fa-graduation-cap mr-2 tild"></i>Login</a>
+                    <a href="/reader/register/" class="btn user-btn"><i class="fa fa-futbol-o rt mr-2" ></i>Join Us</a>
+                    {% endif %}
+                </div>
+
+            </nav>
+        </header>
+        <section>
+            <div class="main" style="margin-top:100px;">
+                <div class="myAllModals">
+   
+                </div>
+                <div class="container">
+                    <div class="alert alert-warning fade show" id="notification" role="alert">
+                        <h4 id="header"></h4><hr>
+                        <button type="button" class="close" onclick="this.parentElement.style.display='none'">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        <strong id="message"></strong> 
+                       
+                      </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for message in messages %}
+                                <div class="alert alert-warning">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row-padding"> 
+                        <div class="w3-row-padding w3-margin-bottom">
+                             
+                            <div class="w3-quarter">
+                                <div class="w3-container w3-green w3-padding-16 rounded  mb-2">
+                                  <div class="w3-left"><i class="fa fa-book w3-xxxlarge tild"></i></div>
+                                  <div class="w3-right">
+                                    <h3>{{books}}</h3>
+                                  </div>
+                                  <div class="w3-clear"></div>
+                                  <h4>Books</h4>
+                                  <p>Total no. of Books you added</p>
+                                </div>
+                              </div>
+                            <div class="w3-quarter">
+                                <div class="w3-container w3-teal w3-padding-16 rounded  mb-2">
+                                  <div class="w3-left"><i class="fa fa-barcode w3-xxxlarge tild"></i></div>
+                                  <div class="w3-right">
+                                    <h3>{{shell}}</h3>
+                                  </div>
+                                  <div class="w3-clear"></div>
+                                  <h4>Shells</h4>
+                                  <p><b>Total no. of Shells </b></p>
+                                </div>
+                              </div>
+                            <div class="w3-quarter">
+                              <div class="w3-container w3-orange w3-text-white w3-padding-16 rounded  mb-2">
+                                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                                <div class="w3-right">
+                                  <h3>{{readed}}</h3>
+                                </div>
+                                <div class="w3-clear"></div>
+                                <h4>Readed</h4>
+                                <p>Total no. of Books you completed</p>
+                              </div>
+                            </div>
+                          
+                            <div class="w3-quarter">
+                              <div class="w3-container bg-primary w3-text-white w3-padding-16 rounded">
+                                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                                <div class="w3-right">
+                                  <h3>{{followers}}</h3>
+                                </div>
+                                <div class="w3-clear"></div>
+                                <h4>Followers</h4>
+                                <p>Here's your Followers</p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="w3-row-padding current-reading">
+                            <h1>Current Reading ({{red_len}}) </h1>
+                            <div class="reading_shell">
+                                {% for book in reading_books %}
+                                    <div class="reading_book d-flex">
+                                        <div class="thumbnail">
+                                            <canvas id="{{book.id}}" class="nailview" data-content="/books/{{book.thumbnail}}"></canvas>
+
+                                        </div>
+                                        <div class="book_info d-inline float-right">
+                                            <h3 class="book_name">{{book.name}}</h3>
+                                            <span href="/books/media/{{book.file_book}}" class=" my-2 viewpdf"  target="{{book.name}}" bookid="{{book.id}}"  data-toggle="tooltip" data-placement="top" title="Read">Readit <h3 class="d-inline">  <i class="fa fa-eye mx-1"></i></h3></span>
+                                            <div class="progress-bar"  data-toggle="tooltip" data-placement="top" title="your progression {{user|progress:book}} %">
+                                                <div class="progress" style="width:{{user|progress:book}}%;"></div>
+                                            </div>
+                                        </div>
+                                        
+                                          
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+        <script src="/static/js/common.js"></script>
+
+{% endblock %}

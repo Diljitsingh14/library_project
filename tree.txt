@@ -1,0 +1,361 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 5AEF-788C
+E:.
+³   db.sqlite3
+³   manage.py
+³   tree.txt
+³   
+ÃÄÄÄbooks
+³   ³   admin.py
+³   ³   apps.py
+³   ³   forms.py
+³   ³   models.py
+³   ³   serializer.py
+³   ³   tests.py
+³   ³   views.py
+³   ³   __init__.py
+³   ³   
+³   ÃÄÄÄmigrations
+³   ³   ³   0001_initial.py
+³   ³   ³   0002_shells.py
+³   ³   ³   0003_book_file_book.py
+³   ³   ³   0004_auto_20200427_1735.py
+³   ³   ³   0005_remove_book_pdf_location.py
+³   ³   ³   0006_auto_20200428_1500.py
+³   ³   ³   0007_auto_20200510_1621.py
+³   ³   ³   0008_remove_book_thumbnail.py
+³   ³   ³   0009_auto_20200520_1228.py
+³   ³   ³   0010_remove_book_thumbnail.py
+³   ³   ³   0011_book_thumbnail.py
+³   ³   ³   0012_reading_record.py
+³   ³   ³   0013_auto_20200612_1034.py
+³   ³   ³   0014_auto_20200612_1144.py
+³   ³   ³   0015_reading_record_total_page.py
+³   ³   ³   0016_auto_20200613_2236.py
+³   ³   ³   0017_auto_20200613_2356.py
+³   ³   ³   0018_shells_create_on.py
+³   ³   ³   0019_remove_shells_create_on.py
+³   ³   ³   0020_shells_create_on.py
+³   ³   ³   0021_book_likes.py
+³   ³   ³   __init__.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           0001_initial.cpython-37.pyc
+³   ³           0001_initial.cpython-38.pyc
+³   ³           0002_shells.cpython-37.pyc
+³   ³           0002_shells.cpython-38.pyc
+³   ³           0003_book_file_book.cpython-37.pyc
+³   ³           0003_book_file_book.cpython-38.pyc
+³   ³           0004_auto_20200427_1735.cpython-37.pyc
+³   ³           0004_auto_20200427_1735.cpython-38.pyc
+³   ³           0005_remove_book_pdf_location.cpython-37.pyc
+³   ³           0005_remove_book_pdf_location.cpython-38.pyc
+³   ³           0006_auto_20200428_1500.cpython-37.pyc
+³   ³           0006_auto_20200428_1500.cpython-38.pyc
+³   ³           0007_auto_20200510_1621.cpython-37.pyc
+³   ³           0007_auto_20200510_1621.cpython-38.pyc
+³   ³           0008_remove_book_thumbnail.cpython-37.pyc
+³   ³           0008_remove_book_thumbnail.cpython-38.pyc
+³   ³           0009_auto_20200520_1228.cpython-37.pyc
+³   ³           0009_auto_20200520_1228.cpython-38.pyc
+³   ³           0010_remove_book_thumbnail.cpython-37.pyc
+³   ³           0010_remove_book_thumbnail.cpython-38.pyc
+³   ³           0011_book_thumbnail.cpython-37.pyc
+³   ³           0011_book_thumbnail.cpython-38.pyc
+³   ³           0012_reading_record.cpython-37.pyc
+³   ³           0012_reading_record.cpython-38.pyc
+³   ³           0013_auto_20200612_1034.cpython-37.pyc
+³   ³           0013_auto_20200612_1034.cpython-38.pyc
+³   ³           0014_auto_20200612_1144.cpython-37.pyc
+³   ³           0014_auto_20200612_1144.cpython-38.pyc
+³   ³           0015_reading_record_total_page.cpython-37.pyc
+³   ³           0015_reading_record_total_page.cpython-38.pyc
+³   ³           0016_auto_20200613_2236.cpython-37.pyc
+³   ³           0016_auto_20200613_2236.cpython-38.pyc
+³   ³           0017_auto_20200613_2356.cpython-37.pyc
+³   ³           0017_auto_20200613_2356.cpython-38.pyc
+³   ³           0018_shells_create_on.cpython-37.pyc
+³   ³           0018_shells_create_on.cpython-38.pyc
+³   ³           0019_remove_shells_create_on.cpython-37.pyc
+³   ³           0019_remove_shells_create_on.cpython-38.pyc
+³   ³           0020_shells_create_on.cpython-37.pyc
+³   ³           0020_shells_create_on.cpython-38.pyc
+³   ³           0021_book_likes.cpython-38.pyc
+³   ³           __init__.cpython-37.pyc
+³   ³           __init__.cpython-38.pyc
+³   ³           
+³   ÃÄÄÄtemplatetags
+³   ³   ³   books_filter.py
+³   ³   ³   __init__.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           books_filter.cpython-37.pyc
+³   ³           books_filter.cpython-38.pyc
+³   ³           __init__.cpython-37.pyc
+³   ³           __init__.cpython-38.pyc
+³   ³           
+³   ÀÄÄÄ__pycache__
+³           admin.cpython-37.pyc
+³           admin.cpython-38.pyc
+³           apps.cpython-38.pyc
+³           forms.cpython-37.pyc
+³           forms.cpython-38.pyc
+³           models.cpython-37.pyc
+³           models.cpython-38.pyc
+³           serializer.cpython-37.pyc
+³           serializer.cpython-38.pyc
+³           views.cpython-37.pyc
+³           views.cpython-38.pyc
+³           __init__.cpython-37.pyc
+³           __init__.cpython-38.pyc
+³           
+ÃÄÄÄmedia
+³   ÀÄÄÄdocuments
+³       ÃÄÄÄ2020
+³       ³   ÃÄÄÄ0428
+³       ³   ³       40363548._UY400_SS400_.jpg
+³       ³   ³       
+³       ³   ÃÄÄÄ0505
+³       ³   ³       HandsonMlwithTCS.jpg
+³       ³   ³       
+³       ³   ÃÄÄÄ0510
+³       ³   ÃÄÄÄ0511
+³       ³   ³       abc.pdf
+³       ³   ³       Learn_Keras_for_Deep_Neural_Networks__A_Fast-Track_Approach_to_Moder_Gqqow6o.pdf
+³       ³   ³       Learn_Keras_for_Deep_Neural_Networks__A_Fast-Track_Approach_to_Moder_hBvr4lN.pdf
+³       ³   ³       Learn_Keras_for_Deep_Neural_Networks__A_Fast-Track_Approach_to_Moder_pTsQBNy.pdf
+³       ³   ³       Learn_Keras_for_Deep_Neural_Networks__A_Fast-Track_Approach_to_Moder_Zlq2a5G.pdf
+³       ³   ³       test.py
+³       ³   ³       
+³       ³   ÃÄÄÄ0520
+³       ³   ³       Deep_Learning_with_Python-Francois_Chollet-En-2018.pdf
+³       ³   ³       Deep_Learning_with_Python-Francois_Chollet-En-2018front.pdf
+³       ³   ³       
+³       ³   ÃÄÄÄ0521
+³       ³   ³       Applied_Deep_Learning__A_Case-Based_Approach_to_Understanding_Deep_N_xEqkLLi.pdf
+³       ³   ³       Applied_Deep_Learning__A_Case-Based_Approach_to_Understanding_Deep_N_xEqkLLifront.pdf
+³       ³   ³       Building_Machine_Learning_Systems_with_Python-2nd_Edition-2015.pdf
+³       ³   ³       Building_Machine_Learning_Systems_with_Python-2nd_Edition-2015front.pdf
+³       ³   ³       Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_PqgBDBh.pdf
+³       ³   ³       Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_PqgBDBhfront.pdf
+³       ³   ³       Introduction_to_Machine_Learning_with_Python-2016.pdf
+³       ³   ³       Introduction_to_Machine_Learning_with_Python-2016front.pdf
+³       ³   ³       Learn_Keras_for_Deep_Neural_Networks__A_Fast-Track_Approach_to_Moder_KtYQAAI.pdf
+³       ³   ³       Learn_Keras_for_Deep_Neural_Networks__A_Fast-Track_Approach_to_Moder_KtYQAAIfront.pdf
+³       ³   ³       rerr.py
+³       ³   ³       test_out2.pdf
+³       ³   ³       
+³       ³   ÃÄÄÄ0611
+³       ³   ³       Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_tNJGOH5front.pdf
+³       ³   ³       
+³       ³   ÃÄÄÄ0613
+³       ³   ³       Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_rHVfmgw.pdf
+³       ³   ³       Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_rHVfmgwfront.pdf
+³       ³   ³       
+³       ³   ÃÄÄÄ0614
+³       ³   ³       Deep_Learning_with_Tensorflow-2017.pdf
+³       ³   ³       Deep_Learning_with_Tensorflow-2017front.pdf
+³       ³   ³       Introduction_to_Machine_Learning_with_Python-2016.pdf
+³       ³   ³       Introduction_to_Machine_Learning_with_Python-2016front.pdf
+³       ³   ³       
+³       ³   ÃÄÄÄ0616
+³       ³   ³       automatetheboringstuffwithpython_new.pdf
+³       ³   ³       automatetheboringstuffwithpython_newfront.pdf
+³       ³   ³       
+³       ³   ÃÄÄÄ0619
+³       ³   ³       automatetheboringstuffwithpython_new.pdf
+³       ³   ³       automatetheboringstuffwithpython_newfront.pdf
+³       ³   ³       
+³       ³   ÀÄÄÄ0622
+³       ³           Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_PqgBDBh.pdf
+³       ³           Hands_on_Machine_Learning_with_Scikit_Learn_Keras_and_TensorFlow_2nd_PqgBDBhfront.pdf
+³       ³           Hands-On Machine Learning with Scikit-Learn and TensorFlow 2e ( PDFDrive ).pdf
+³       ³           
+³       ÀÄÄÄ2021
+³           ÃÄÄÄ0705
+³           ³       The_New_Trading_for_a_Living__Psychology_Discipline_Trading_Tools_an_ze5I8HYfront.pdf
+³           ³       
+³           ÀÄÄÄ0706
+³                   The_New_Trading_for_a_Living__Psychology_Discipline_Trading_Tools_an_NUC3NDE.pdf
+³                   The_New_Trading_for_a_Living__Psychology_Discipline_Trading_Tools_an_NUC3NDEfront.pdf
+³                   
+ÃÄÄÄmyShelf
+³   ³   asgi.py
+³   ³   settings.py
+³   ³   urls.py
+³   ³   wsgi.py
+³   ³   __init__.py
+³   ³   
+³   ÀÄÄÄ__pycache__
+³           settings.cpython-37.pyc
+³           settings.cpython-38.pyc
+³           urls.cpython-37.pyc
+³           urls.cpython-38.pyc
+³           wsgi.cpython-37.pyc
+³           wsgi.cpython-38.pyc
+³           __init__.cpython-37.pyc
+³           __init__.cpython-38.pyc
+³           
+ÃÄÄÄreader
+³   ³   admin.py
+³   ³   apps.py
+³   ³   forms.py
+³   ³   models.py
+³   ³   serializer.py
+³   ³   tests.py
+³   ³   views.py
+³   ³   __init__.py
+³   ³   
+³   ÃÄÄÄmigrations
+³   ³   ³   0001_initial.py
+³   ³   ³   0002_remove_reader_mobile.py
+³   ³   ³   0003_contact_us.py
+³   ³   ³   __init__.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           0001_initial.cpython-37.pyc
+³   ³           0001_initial.cpython-38.pyc
+³   ³           0002_remove_reader_mobile.cpython-37.pyc
+³   ³           0002_remove_reader_mobile.cpython-38.pyc
+³   ³           0003_contact_us.cpython-37.pyc
+³   ³           0003_contact_us.cpython-38.pyc
+³   ³           __init__.cpython-37.pyc
+³   ³           __init__.cpython-38.pyc
+³   ³           
+³   ÀÄÄÄ__pycache__
+³           admin.cpython-37.pyc
+³           admin.cpython-38.pyc
+³           forms.cpython-37.pyc
+³           forms.cpython-38.pyc
+³           models.cpython-37.pyc
+³           models.cpython-38.pyc
+³           serializer.cpython-37.pyc
+³           serializer.cpython-38.pyc
+³           views.cpython-37.pyc
+³           views.cpython-38.pyc
+³           __init__.cpython-37.pyc
+³           __init__.cpython-38.pyc
+³           
+ÃÄÄÄstatic
+³   ÃÄÄÄbootstrap-4
+³   ³   ÃÄÄÄcss
+³   ³   ³       bootstrap-grid.css
+³   ³   ³       bootstrap-grid.css.map
+³   ³   ³       bootstrap-grid.min.css
+³   ³   ³       bootstrap-grid.min.css.map
+³   ³   ³       bootstrap-reboot.css
+³   ³   ³       bootstrap-reboot.css.map
+³   ³   ³       bootstrap-reboot.min.css
+³   ³   ³       bootstrap-reboot.min.css.map
+³   ³   ³       bootstrap.css
+³   ³   ³       bootstrap.css.map
+³   ³   ³       bootstrap.min.css
+³   ³   ³       bootstrap.min.css.map
+³   ³   ³       
+³   ³   ÀÄÄÄjs
+³   ³           bootstrap.bundle.js
+³   ³           bootstrap.bundle.js.map
+³   ³           bootstrap.bundle.min.js
+³   ³           bootstrap.bundle.min.js.map
+³   ³           bootstrap.js
+³   ³           bootstrap.js.map
+³   ³           bootstrap.min.js
+³   ³           bootstrap.min.js.map
+³   ³           
+³   ÃÄÄÄcss
+³   ³       common.css
+³   ³       login.css
+³   ³       
+³   ÃÄÄÄfont-awesome-4.7.0
+³   ³   ³   HELP-US-OUT.txt
+³   ³   ³   
+³   ³   ÃÄÄÄcss
+³   ³   ³       font-awesome.css
+³   ³   ³       font-awesome.min.css
+³   ³   ³       
+³   ³   ÃÄÄÄfonts
+³   ³   ³       fontawesome-webfont.eot
+³   ³   ³       fontawesome-webfont.svg
+³   ³   ³       fontawesome-webfont.ttf
+³   ³   ³       fontawesome-webfont.woff
+³   ³   ³       fontawesome-webfont.woff2
+³   ³   ³       FontAwesome.otf
+³   ³   ³       
+³   ³   ÃÄÄÄless
+³   ³   ³       animated.less
+³   ³   ³       bordered-pulled.less
+³   ³   ³       core.less
+³   ³   ³       fixed-width.less
+³   ³   ³       font-awesome.less
+³   ³   ³       icons.less
+³   ³   ³       larger.less
+³   ³   ³       list.less
+³   ³   ³       mixins.less
+³   ³   ³       path.less
+³   ³   ³       rotated-flipped.less
+³   ³   ³       screen-reader.less
+³   ³   ³       stacked.less
+³   ³   ³       variables.less
+³   ³   ³       
+³   ³   ÀÄÄÄscss
+³   ³           font-awesome.scss
+³   ³           _animated.scss
+³   ³           _bordered-pulled.scss
+³   ³           _core.scss
+³   ³           _fixed-width.scss
+³   ³           _icons.scss
+³   ³           _larger.scss
+³   ³           _list.scss
+³   ³           _mixins.scss
+³   ³           _path.scss
+³   ³           _rotated-flipped.scss
+³   ³           _screen-reader.scss
+³   ³           _stacked.scss
+³   ³           _variables.scss
+³   ³           
+³   ÃÄÄÄimages
+³   ³   ÀÄÄÄbackground
+³   ³           arduino.png
+³   ³           IMG_20180927_084829.jpg
+³   ³           IMG_20181006_124936.jpg
+³   ³           prog.png
+³   ³           web.png
+³   ³           willsmith.jpg
+³   ³           
+³   ÃÄÄÄjquery
+³   ³       hammer.js
+³   ³       hammer.min.js.map
+³   ³       jquery.min.js
+³   ³       jquery.mobile.min.js
+³   ³       
+³   ÃÄÄÄjs
+³   ³       common.js
+³   ³       random.js
+³   ³       site.js
+³   ³       
+³   ÀÄÄÄtemp images
+³           book1.jpg
+³           book10.jpg
+³           book2.jpg
+³           book3.jpg
+³           book4.jpg
+³           book5.jpg
+³           book6.jpg
+³           book7.jpg
+³           book8.jpg
+³           book9.jpg
+³           
+ÀÄÄÄTemplates
+    ³   boilerplate.html
+    ³   contact.html
+    ³   
+    ÃÄÄÄbooks
+    ³       index.html
+    ³       
+    ÀÄÄÄreader
+            library.html
+            login.html
+            profile.html
+            register.html
+            usersettings.html
+            

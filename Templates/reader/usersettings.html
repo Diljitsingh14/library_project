@@ -1,0 +1,126 @@
+{% extends "boilerplate.html" %}
+{% block title %} User setting {% endblock %}
+{% load books_filter %}
+{% load crispy_forms_tags %}
+ 
+    {% block body %}
+        <header>
+            <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+                <div class="navbar-brand "> <h1><i class="fa fa-barcode mx-2"></i> Lollins</h1> </div>
+                <ul class="navbar-nav mx-auto ">
+                   <a href ="/" class=" mx-auto"><li class="navbar-item"><i class="fa fa-home mx-2"></i> <span class="w3-hide-small">Home</span>  </li></a>
+                   <a href ="/reader/library/" class=" mx-auto" > <li class="navbar-item"><i class="fa fa-barcode mx-2"></i>  <span class="w3-hide-small"> My Library</span></li></a>
+                   <a href ="/contact_us/" class="mx-auto" ><li class="navbar-item"><i class="fa fa-phone mx-2"></i> <span class="w3-hide-small"> Contact us</span></li></a>
+                     
+                </ul>
+                <div class="user-bar">
+                    {% if user.id %}
+                    <div class="dropdown">
+                        <button class="btn user-btn dropdown-toggle" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle-o mr-2 tild" ></i>{{user.username}}  
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="usermenu">
+                            <a href="/reader/profile/" class="dropdown-item"><i class="fa fa-user tild  mr-3"></i> Profile</a>
+                            <a href="/reader/settings/" class="active dropdown-item"><i class="fa fa-cogs tild  mr-3"></i> Settings</a>
+                            <a href="/reader/logout/" class="dropdown-item"><i class="fa fa-sign-out tild  mr-3"></i> Logout</a>
+                        </div>
+                    </div>
+                    
+                    {% else %}
+                    <a href="/reader/login/" class="btn user-btn"><i class="fa fa-graduation-cap mr-2 tild"></i>Login</a>
+                    <a href="/reader/register/" class="btn user-btn"><i class="fa fa-futbol-o rt mr-2" ></i>Join Us</a>
+                    {% endif %}
+                </div>
+
+            </nav>
+        </header>
+        <section>
+            <div class="main" style="margin-top:100px;">
+                <div class="myAllModals">
+   
+                </div>
+                <div class="container">
+                    <div class="alert alert-warning fade show" id="notification" role="alert">
+                        <h4 id="header"></h4><hr>
+                        <button type="button" class="close" onclick="this.parentElement.style.display='none'">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        <strong id="message"></strong> 
+                       
+                      </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for message in messages %}
+                                <div class="alert alert-warning">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row-padding"> 
+                        <div class="container">
+                            <table class="table table-light rounded table-hover">
+                                <tbody>
+                                    <form action="/reader/settings/" method="post">
+                                        {% csrf_token %}
+                                        <tr>
+                                            <th>first name</th>
+                                            <td><input type="text" name="first_name" id="f_name" class="form-control" required value="{{user.first_name}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>last name</th>
+                                            <td><input type="text" name="last_name" id="l_name" class="form-control" required value="{{user.last_name}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Username</th>
+                                            <td><input type="text" name="username" id="u_name" class="form-control" required readonly value="{{user.username}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><input type="email" name="email" id="email" class="form-control" required readonly value="{{user.email}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="submit" class="btn btn-primary "> Update</button>
+       
+                                               </td>
+                                        </tr>
+                                      
+                                  </form>
+
+                                        <tr>
+                                            <td>Password</td>
+
+                                            <td>
+                                                {% if form%}
+                                                <form method="post">
+                                                    {% csrf_token %}
+                                                {{ form|crispy }}
+                                                <!-- <input type="password" name="oldpassword" id="op" class="form-control" placeholder="Old Password" required><br>
+                                                <input type="password" name="newpassword" id="np" class="form-control" placeholder="New Password" required><br>
+                                                <input type="password" name="confirmpassword"class="form-control" placeholder="Cofirm Password" id="cp" required>
+                                                 -->
+                                                 <br>
+                                                  <button type="submit" class="btn btn-primary">change password</button>
+
+                                                </form>
+                                                {% else %}
+                                                    <a href="/reader/settings/change_password/" class="btn btn-primary"> Change Password </a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <td>
+
+                                        </td>
+                                    </form>
+                                </tbody>
+                              </table>
+                           </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+        
+
+{% endblock %}

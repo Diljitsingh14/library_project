@@ -1,0 +1,48 @@
+{% extends "boilerplate.html" %}
+{% block title %} User Profile {% endblock %}
+{% load books_filter %}
+{% load crispy_forms_tags %}
+ 
+    {% block head %}
+         <link rel="stylesheet" href="/static/css/login.css">
+    {% endblock %}
+    {% block body %}
+    <header>
+        <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+            <div class="navbar-brand "> <h1><i class="fa fa-barcode mx-2"></i> Lollins</h1> </div>
+            <ul class="navbar-nav mx-auto ">
+               <a href ="/" class=" mx-auto"><li class="navbar-item"><i class="fa fa-home mx-2"></i> <span class="w3-hide-small">Home</span>  </li></a>
+               <a href ="/reader/library/" class=" mx-auto" > <li class="navbar-item"><i class="fa fa-barcode mx-2"></i>  <span class="w3-hide-small"> My Library</span></li></a>
+               <a href ="/contact_us/" class="mx-auto" ><li class="navbar-item"><i class="fa fa-phone mx-2"></i> <span class="w3-hide-small"> Contact us</span></li></a>
+                 
+            </ul>
+            <div class="user-bar">
+                
+                <a href="/reader/login/" class=" btn user-btn"><i class="fa fa-graduation-cap mr-2 tild"></i>Login</a>
+                <a href="/reader/register/" class="btn w3-teal user-btn"><i class="fa fa-futbol-o rt mr-2" ></i>Join Us</a>
+            </div>
+
+        </nav>
+    </header>
+        <section>
+         <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% for message in messages %}
+                        <div class="alert alert-warning">{{message}}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        
+            <div class="regs">
+                <h1 class="text-white" style="text-align: center;">Register Yourself</h1>
+                <form action="/reader/register/" method="post" class="regsform">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-primary w3-teal" style="width: 100%;"> Register </button>
+                </form>
+            </div>
+        </div>
+       </section>
+
+{% endblock %}

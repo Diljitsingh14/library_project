@@ -1,0 +1,300 @@
+{% extends "boilerplate.html" %}
+{% block title %} My library {% endblock %}
+{% load books_filter %}
+{% load crispy_forms_tags %}
+ 
+    {% block body %}
+        <header>
+            <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+                <div class="navbar-brand "> <h1><i class="fa fa-barcode mx-2"></i> Lollins</h1> </div>
+                <ul class="navbar-nav mx-auto ">
+                   <a href ="/" class=" mx-auto"><li class="navbar-item"><i class="fa fa-home mx-2"></i> <span class="w3-hide-small">Home</span>  </li></a>
+                   <a href ="/reader/library/" class="active mx-auto" > <li class="navbar-item"><i class="fa fa-barcode mx-2"></i>  <span class="w3-hide-small"> My Library</span></li></a>
+                   <a href ="/contact_us/" class="mx-auto" ><li class="navbar-item"><i class="fa fa-phone mx-2"></i> <span class="w3-hide-small"> Contact us</span></li></a>
+                     
+                </ul>
+                <div class="user-bar">
+                    {% if user.id %}
+                    <div class="dropdown">
+                        <button class="btn user-btn dropdown-toggle" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle-o mr-2 tild" ></i>{{user.username}}  
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="usermenu">
+                            <a href="/reader/profile/" class="dropdown-item"><i class="fa fa-user tild  mr-3"></i> Profile</a>
+                            <a href="/reader/settings/" class="dropdown-item"><i class="fa fa-cogs tild  mr-3"></i> Settings</a>
+                            <a href="/reader/logout/" class="dropdown-item"><i class="fa fa-sign-out tild  mr-3"></i> Logout</a>
+                        </div>
+                    </div>
+                    
+                    {% else %}
+                    <a href="/reader/login/" class="btn user-btn"><i class="fa fa-graduation-cap mr-2 tild"></i>Login</a>
+                    <a href="/reader/register/" class="btn user-btn"><i class="fa fa-futbol-o rt mr-2" ></i>Join Us</a>
+                    {% endif %}
+                </div>
+
+            </nav>
+        </header>
+        <section>
+            <div class="main" style="margin-top:100px;">
+                <div class="myAllModals">
+                    <div class="modal fade" id="addshell" tabindex="-1" role="dialog" aria-labelledby="addshell" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="shellname">Shell name</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/library/addshell/" class="form-group" method="POST">
+                                {% csrf_token %}
+                                <input type="text" class="form-control my-4" name = "shell_name" placeholder="Ender Shell Name">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+
+                            </form>
+                            </div>
+                             
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="addbookinfo" tabindex="-1" role="dialog" aria-labelledby="addbookinfo" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="bookinfo">Insert Book details</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/library/addbook/" class="form-group" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="b_name">Book Title</label>
+                                    <input type="text" class="form-control" name="b_name" id="b_name" maxlength="150" placeholder="Title" required>
+                                </div>
+                                Shellname :<input type="text" class="form-control" name="shellName" id="shellName" required readonly value="" placeholder="">
+                                Auther:<input type="text" class="form-control" name="auther" id="auther" required placeholder="auther">
+                                <!-- Thumbnail:<input type="file" name="thumbnail" id="mythumbnail" accept="image/*" class="file-input my-4" required><br> -->
+                                Pdf :<input type="file" name="myfile" id="myfile" accept="pdf/*" class="file-input my-4" required><br>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i> Insert book</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            </div>
+                             
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="bookview" tabindex="-1" role="dialog" aria-labelledby="bookview" aria-hidden="true">
+                        <div class="modal-dialog mx-auto bookDis" role="document">
+                          <div class="modal-content" >
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="bookname"><i class="fa fa-barcode"></i></h4>
+                              <div class="display-inline operation-bar">
+            
+                                <h2 class="float-right"><i class="fa fa-floppy-o mx-2" data-toggle="tooltip" data-placement="top" title="Save" onclick="remember_page()"></i></h2>
+
+                              </div>
+                              <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip" data-placement="top" title="Close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body p-0">
+                               <canvas id="pdfview" style="width: 100%;"></canvas>
+                                
+                            </div>
+                            <div class="model-footer">
+                                <div class="w3-center my-1">
+                                    <button type="button" class="btn btn-danger mr-auto w3-left" data-dismiss="modal"><i class="fa fa-window-close-o"></i> Close</button>
+
+                                    <button class="btn btn-primary mx-auto" onclick="pagedown()"><i class="fa fa-caret-square-o-left"></i> Prev</button>
+                                    <span class="badge badge-lg badge-primary" id="pageno"><input type="number" class="form-control" name="pagenoInp" id="pagenoInp" maxlength="" style="width:50px; -webkit-appearance: none; -moz-appearance: none;"></span>/
+                                    <span class="badge badge-lg badge-primary" id="endpage"></span>
+                                    <button class="btn btn-success mx-auto" onclick="gotopage()"><i class="fa fa-paper-plane"></i> Go</button>
+                                    
+                                    <button class="btn btn-primary mx-auto" onclick="pageup()"><i class="fa fa-caret-square-o-right"></i> Next</button>
+                                </div>
+                                
+                                
+                            </div>
+                             
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="shell_settings" tabindex="-1" role="dialog" aria-labelledby="shell_settings" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="bookinfo"><span id="shell_title"></span> <i class="fa fa-wrench tild"></i></h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/library/shell/update/" class="form-group" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="sid" id="sid">
+                                <div class="form-group">
+                                    <label for="shell_name">Shell Name :</label>
+                                    <input type="text" class="form-control" name="name" id="shell_name" maxlength="60" placeholder="Title" required>
+                                </div>
+                                <div class="form-group">
+                                    privacy :
+                                    <label for="shell_privacy" class="switch"> 
+                                        <input type="checkbox" name="privacy" id="shell_privacy">
+                                        <div class="slider round"></div>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    contribution :
+                                    <label for="shell_contrib" class="switch"> 
+                                        <input type="checkbox" name="contrib" id="shell_contrib">
+                                        <div class="slider round"></div>
+                                    </label>
+                                </div>
+           
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i> Update shell</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            </div>
+                             
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="shell_info" tabindex="-1" role="dialog" aria-labelledby="shell_info" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" style="width:100%;" id="bookinfo"><span class="t_shell_name"></span> <i class="fa fa-info-circle tild"></i> <span class="t_shell_owner float-right"></span></h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                               <div class="container">
+                                <table class="table table-light rounded table-hover">
+                                    <tbody>
+                                      <tr>
+                                        <th>Name</th>
+                                        <td class="t_shell_name"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>create by</th>
+                                        <td class ="t_shell_owner"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>no_of_books</td>
+                                        <td id="t_books_inside"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>privacy</td>
+                                        <td id="t_shell_privacy"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Contribution</td>
+                                        <td id="t_shell_contrib"></td>
+                                      </tr>
+                                      
+                                      <tr>
+                                        <td>Create On</td>
+                                        <td id="t_shell_date"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                               </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            </div>
+                             
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="alert alert-warning fade show" id="notification" role="alert">
+                        <h4 id="header"></h4><hr>
+                        <button type="button" class="close" onclick="this.parentElement.style.display='none'">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        <strong id="message"></strong> 
+                       
+                      </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="add_shell" id="add_shell"><span><i class="fa fa-plus-square"></i>Add Shell</span></div>
+                            {% for message in messages %}
+                                <div class="alert alert-warning">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row-padding">
+                      
+                        {% if not sz %}
+                            <h1 style="color:teal;" class="my-auto"><i class="fa fa-frown-o"></i> sorry you does not have any shell please first create it.</h1>
+                        {% endif %}
+
+
+                        {% for shell,books in sz  %}
+                            <div class="shell-container mt-5">
+                                    <div class="shell-top">
+                                        <h3 class="d-inline">{{shell.name}} </h3>
+                                        <div class="shell-operations d-inline float-right mx-2">
+                                            <i class="fa fa-book" data-toggle="tooltip"  data-placement="top" title="No. of books inside shell: {{shell|no_of_books}}"> {{shell|no_of_books}}</i>
+                                            <i class="fa fa-cog rt" data-resp="{{shell.id}}" data-toggle="tooltip"  data-placement="top" title="Settings of shell" onclick="shell_settings(this)"></i>
+                                            <i class="fa fa-info-circle rt" data-resp="{{shell.id}}" data-toggle="tooltip"  data-placement="top" title="shell information" onclick="shell_info(this)"></i>
+                                        </div>
+                                    </div>
+                                    <div class="shell">   
+                                        <div class="shell_wraper">
+                                            {% for i in books  %}
+                                                    
+                                                    <div class="card book-view">
+                                                        <div class="thumbnail">
+                                                        <canvas id="{{i.id}}" class="nailview" data-content="/books/{{i.thumbnail}}"></canvas>
+                                                        <p >{{i.name}}</p>
+                                                        </div>
+                                                        <span href="/books/media/{{i.file_book}}" class=" my-2 viewpdf"  target="{{i.name}}" last-page="{{user|last_page:i}}"  bookid="{{i.id}}"  data-toggle="tooltip" data-placement="top" title="Read"><h3 class="d-inline"><i class="fa fa-eye"></i></h3></span>
+                                                        {% if user|is_liked:i %}
+                                                        <span class="float-right likes">
+                                                          <span id="nofs_likes_{{i.id}}">{{i.likes_count}}</span>
+                                                            <i class="fa fa-thumbs-up" data-toggle="tooltip"  data-placement="top" title="likes" data-resp="{{i.id}}" onclick="book_like(this)"> </i>
+                                                        </span>
+                                                        {% else %}
+                                                          <span class="float-right likes">
+                                                            <span id="nofs_likes_{{i.id}}">{{i.likes_count}}</span>
+                                                            <i class="fa fa-thumbs-o-up" data-toggle="tooltip"  data-placement="top" title="likes" data-resp="{{i.id}}" onclick="book_like(this)"> </i>
+                                                        </span>
+                                                        {% endif %}
+                                                        
+                                                        <div class="progress-bar"  data-toggle="tooltip"  data-placement="top" title="your progression {{user|progress:i}} %">
+                                                            <div class="progress" style="width:{{user|progress:i}}%;"></div>
+                                                        </div>
+                                                    </div>
+                                            {% endfor %}
+                                            {% if not books %}
+                                                <div class="card book-view">
+                                                    <h3 style="color:teal; text-align:center;"><i class="fa fa-frown-o"></i>Sorry there is no book in your {{shell.name}} shell. <br> click add book to fill your rack</h3>
+                                                </div>
+                                            {% endif %}
+                                                <div class="add_shell add_book" id="{{shell.name}}" name = "{{shell.name}}"><span><i class="fa fa-plus-square"></i> Add Book <i class="fa fa-book"></i></span></div>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                        {% endfor %}  
+                        
+                   </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+        <script src="/static/js/common.js">
+
+        </script>
+{% endblock %}

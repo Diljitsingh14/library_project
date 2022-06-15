@@ -1,0 +1,227 @@
+{% extends "boilerplate.html" %}
+{% block title %} Contact Us {% endblock %}
+{% load books_filter %}
+{% load crispy_forms_tags %}
+ {% block head %}
+  <style>
+    @media(max-width:500px ) {
+      
+    }
+    tr
+    {
+        color:white !important;
+    }
+     body
+     {
+         background-color: black;
+     }
+     .image > img
+     {
+         width:100%;
+         margin-left: auto;
+         margin-right: auto;
+         position: relative;
+         top:10px;
+
+     }
+     h1
+     {
+         width:100%;
+     }
+     .icon > img
+     {
+         width: auto;
+         height: 150px;
+     }
+     .service .container:hover
+     {
+         box-shadow: 5px 5px 15px teal,-5px 5px 15px teal;
+     }
+     .service .container
+     {
+         height:400px;
+         padding: 10px;
+         border:1px solid white;
+         border-radius: 5px;
+         margin:auto;
+         overflow: hidden;
+         transition: .4s ease;
+     }
+     .form
+     {
+         width: 100%;
+
+     }
+     .controls
+     {
+         text-align: center;
+
+     }
+     .controls > input,textarea,.submit-btn
+     {
+         font-size: 26px;
+         width: 65%;
+         font-weight: bolder;
+
+     }
+   
+  </style>
+ {% endblock %}
+    {% block body %}
+        <header>
+            <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+                <div class="navbar-brand "> <h1><i class="fa fa-barcode mx-2"></i> Lollins</h1> </div>
+                <ul class="navbar-nav mx-auto ">
+                   <a href ="/" class=" mx-auto"><li class="navbar-item"><i class="fa fa-home mx-2"></i> <span class="w3-hide-small">Home</span>  </li></a>
+                   <a href ="/reader/library/" class=" mx-auto" > <li class="navbar-item"><i class="fa fa-barcode mx-2"></i>  <span class="w3-hide-small"> My Library</span></li></a>
+                   <a href ="#" class="mx-auto" ><li class="active navbar-item"><i class="fa fa-phone mx-2"></i> <span class="w3-hide-small"> Contact us</span></li></a>
+                     
+                </ul>
+                <div class="user-bar">
+                    {% if user.id %}
+                    <div class="dropdown">
+                        <button class="btn user-btn dropdown-toggle" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle-o mr-2 tild" ></i>{{user.username}}  
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="usermenu">
+                            <a href="/reader/profile/" class="profile dropdown-item"><i class="fa fa-user tild  mr-3"></i> Profile</a>
+                            <a href="/reader/settings/" class=" dropdown-item"><i class="fa fa-cogs tild  mr-3"></i> Settings</a>
+                            <a href="/reader/logout/" class="dropdown-item"><i class="fa fa-sign-out tild  mr-3"></i> Logout</a>
+                        </div>
+                    </div>
+                    
+                    {% else %}
+                    <a href="/reader/login/" class="btn user-btn"><i class="fa fa-graduation-cap mr-2 tild"></i>Login</a>
+                    <a href="/reader/register/" class="btn user-btn"><i class="fa fa-futbol-o rt mr-2" ></i>Join Us</a>
+                    {% endif %}
+                </div>
+
+            </nav>
+        </header>
+        <section>
+            <div class="main text-white" style="margin-top:100px;">
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for message in messages %}
+                                <div class="alert alert-warning">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <h1>Full Stack Web Developer</h1>
+                    </div>
+                    <div class="row d-flex my-4">
+                        <div class="image d-inline col-sm-12 col-md-6">
+                                <img src="/static/images/background/willsmith.jpg" alt="">
+                        </div>
+                        <div class="info col-sm-12 col-md-6 my-4">
+                            <table>
+                                <tr>
+                                    
+                                    <td> <i class="fa fa-envelope"></i>  </td>
+                                    <td> jeetcreation14@gmail.com </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td> <i class="fa fa-phone-square"></i>  </td>
+                                    <td> +91 79860-23274 </td>
+
+                                </tr>
+                                <tr>
+                                    
+                                    <td> <i class="fa fa-pinterest-square"></i>  </td>
+                                    <td> Lollins@pinterest </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td> <i class="fa fa-facebook-square"></i>  </td>
+                                    <td> <a href="https://www.facebook.com/DiljeetSingh/">facebook.com/lollins/</a> </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <hr class="bg-white">
+
+                    <div class="row my-4">
+                        <h1 class="text-center"> Our Services </h1>
+                        <div class="col-md-4 text-center service my-2">
+
+                            <div class="container">
+                                <div class="image icon">
+                                    <img src="/static/images/background/web.png" alt="">
+                                </div>
+                                <div class="info">
+                                    <h3>Web Designing</h3>
+                                    <ul>
+                                        <li>Full Stack Web development.</li>
+                                        <li>Django , PHP , Node.js etc...</li>
+                                        <li>BootStrap , W3CSS , CSS , React etc...</li>
+                                        <li>Database Management.</li>
+                                        <li>Many more..</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center service my-2">
+                            <div class="container">
+                                <div class="image icon">
+                                    <img src="/static/images/background/arduino.png" alt="">
+                                </div>
+                                <div class="info">
+                                    <h3>Embedded System</h3>
+                                    <ul>
+                                        <li>Arduino Projects.</li>
+                                        <li>Robotics programming and hardware.</li>
+                                        <li>Internet of Things.</li>
+                                        <li>Web VR and Ai.</li>
+                                        <li>Many more..</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center service my-2">
+                            <div class="container">
+                                <div class="image icon">
+                                    <img src="/static/images/background/prog.png" alt="">
+                                </div>
+                                <div class="info">
+                                    <h3> Programming</h3>
+                                    <ul>
+                                        <li>Python Programming.</li>
+                                        <li>Deep Learning Projects.</li>
+                                        <li>Machine Learning Problems.</li>
+                                        <li>Neural Networks.</li>
+                                        <li>Many more..</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr class="bg-white">
+                    <br>
+                    <div class="row">
+                        <br>
+                        <h3 class="text-center my-4">Contact Us or any Query</h3>
+                        <form method="POST" class="form mx-2">
+                            {{form|crispy}}
+                            {% csrf_token %}
+                           <center> <button class="btn btn-primary my-3 submit-btn">Submit</button> </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="navbar navbar-dark bg-dark text-center text-white">
+                <p style="width:100%;">&copy; @ jeet creation corporation 2019</p>
+            </div>
+        </footer>
+        <script src="/static/js/common.js"></script>
+
+{% endblock %}

@@ -1,0 +1,352 @@
+body
+{
+    background-color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+.navbar ul a:hover
+{
+    color:white;
+}
+.navbar ul .active
+{
+     color:teal;
+     border-bottom: 2px solid teal;
+}
+.navbar ul a:hover::after
+{
+    width:100%;
+
+}
+ 
+input
+{
+    font-weight: bold;
+}
+ .navbar ul a::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    z-index:-1;
+    width:0%;
+    left:0;
+    height:100%;
+    border-radius: 3px;
+    background: teal;
+    transform-origin:center;
+    transition:transform 0.7s ease;
+    transform:scaleX(1);
+    transition: .5s;
+}
+.navbar ul a
+{
+    padding:5px 10px;
+    text-decoration: none;
+    color:black;
+    margin: 5px 10px;
+    font-weight: bolder;
+    transition: .4s ease;
+    position: relative;
+    letter-spacing: 2px;
+}
+.add_shell span
+{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+     
+}
+.add_shell
+{
+    width:100px;
+    height:100px;
+    position: relative;
+    border-radius: 50%;
+    padding: 20px 10px; 
+    background: teal;
+    color:white;
+    cursor: pointer;
+}
+@media (max-width:600px)
+{
+    
+    .main
+    {
+        margin-top: 160px !important;
+    }
+    .navbar-nav
+    {
+            flex-direction: row;
+    }
+.navbar ul a 
+{
+    display: inline;
+     
+}
+.navbar ul
+{       
+    width:100%;
+}
+}
+.shell:hover
+{
+    box-shadow:  0px 0px 10px 2px #888888;
+
+}
+.shell
+{
+    border:1px solid teal;
+    padding:10px 20px;
+    border-radius: 3px;
+    overflow-x:scroll;
+    transition: .4s ease;
+}
+.shell .shell_wraper
+{
+
+    width:max-content;
+}
+.shell .nailview
+{
+    width:100%;
+    height:250px;
+}
+.shell .book-view:hover
+{
+    transform:scale(1.05);
+    box-shadow:  0px 0px 10px 2px #888888;
+    
+}
+.shell .book-view
+{
+    /* background: teal; */
+    display: inline-block;
+    height: 300px;
+    width: 200;
+    overflow: hidden;
+    transition: .3s ease;
+    cursor: pointer;
+    
+}
+header .navbar
+{
+    box-shadow:  0px 0px 15px 1px teal;
+
+}
+.add_book
+{
+    display: inline-block;
+    top:-100px;
+}
+.book-view .thumbnail p
+{
+    position: absolute;
+    bottom: 40px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    width: 100%;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}
+ .bookDis
+ {
+    max-width: 100% ;
+ }
+@media(min-width: 860px) {
+    .bookDis
+    {
+        max-width: 75%;
+    }
+ 
+    
+}
+.operation-bar > h2
+{
+    cursor: pointer;
+}
+.operation-bar
+{
+    position:absolute;
+    right: 50px;
+    
+}
+#notification
+{
+    display: none;
+    position:fixed;
+    width:85%;
+    top:150px;
+    z-index: 99999;
+ 
+}
+.progress-bar:hover
+{
+box-shadow: 2px 2px 7px teal,2px -2px 7px teal;
+
+}
+
+
+.progress-bar
+{
+    width:100%;
+    height:5px;
+    border-radius: 5px;
+    background-color: white;
+    border:.5px solid teal;
+
+}
+.progress
+{
+    width: 40%;
+    height:4px;
+    margin-top:auto;
+    margin-bottom: auto;
+    background-color: teal;
+}
+.shell-operations > i:hover
+{
+    text-shadow: 1px 1px 10px rgb(15, 211, 211),1px -1px 10px rgb(27, 212, 212);
+
+}
+
+
+.shell-operations > i
+{
+    font-size: 24px;
+    margin-left:15px;
+    transition: .4s ease;
+}
+.user-btn:hover
+{
+    box-shadow: 1px 1px 3px teal,1px -1px 3px teal;
+    background-color: teal;
+    color: white;
+}
+.user-btn
+{
+    border:1px solid teal;
+    color:teal;
+    border-radius: 4px;
+    font-weight: bolder;
+    transition: .4s ease;
+}
+.rt
+{
+    transition: .8s ease;
+}
+.rt:hover
+{
+    transform: rotate(180deg);
+}
+.tild
+{
+    transition: .4s ease;
+}
+.tild:hover
+{
+    transform: rotate(-45deg);
+}
+.switch
+{
+    position: relative;
+    width:60px;
+    height:34px;
+    display:inline-block;
+    bottom:5px;
+
+
+}
+/* Hide default HTML checkbox */
+.switch input 
+{
+opacity: 0;
+width: 0;
+height: 0;
+
+}
+.slider:hover
+{
+    box-shadow: 1px 1px 10px rgb(15, 211, 211),1px -1px 10px rgb(27, 212, 212);
+    
+}
+.slider
+{
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: grey;
+    transition: 0.4s ease;
+    -webkit-transition: .4s;
+    padding:5px;
+    cursor: pointer;
+
+}
+.slider::before
+{
+    background: white;
+    width:26px;
+    height:26px;
+    content:"";
+    position:absolute;
+    left:4px;
+    bottom:4px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider:before
+{
+    -webkit-transform: translateX(28px);
+    transform:translateX(28px)
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px teal;
+    }
+input:checked + .slider
+{
+    background: teal;
+}
+.round
+{
+    border-radius: 34px;
+}
+.thumbnail > canvas
+{
+    height: 300px;
+    width:auto;
+
+}
+.reading_book
+{
+    padding:10px 20px;
+    margin:10px 0;
+}
+.book_info
+{
+    padding: 10px 20px;
+}
+.current-reading
+{
+    padding:10px 5px;
+    border:1px solid black;
+    border-radius: 5px;
+}
+
+.likes
+{
+    font-weight: bolder;
+    margin: 4px;
+}
